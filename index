@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAMUTAY Soluções Técnicas e Engenharia</title>
+  <meta name="description" content="HAMUTAY Soluções Técnicas e Engenharia: consultoria, laudos, fiscalização, geotecnia, saneamento, infraestrutura e segurança do trabalho." />
+  <link rel="icon" href="assets/logo-hamutay.png" />
+  <style>
+    :root{
+      --azul-900:#002e67;
+      --azul-800:#003c7f;
+      --azul-700:#07509b;
+      --azul-600:#1568bf;
+      --azul-300:#8db6dc;
+      --azul-100:#eaf3fb;
+      --cinza-900:#101827;
+      --cinza-700:#334155;
+      --cinza-500:#64748b;
+      --cinza-100:#f5f7fb;
+      --branco:#ffffff;
+      --linha:rgba(0,46,103,.14);
+      --sombra:0 18px 50px rgba(0,46,103,.18);
+      --radius:24px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter, Arial, Helvetica, sans-serif;color:var(--cinza-900);background:#fff;line-height:1.55}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1180px, calc(100% - 40px));margin-inline:auto}
+    .topbar{background:var(--azul-900);color:white;font-size:.88rem}
+    .topbar .container{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:9px 0}
+    .topbar span{opacity:.92}
+    .topbar a{font-weight:700}
+    header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--linha)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:245px}
+    .brand img{width:50px;height:50px;object-fit:contain}
+    .brand strong{display:block;color:var(--azul-900);font-size:1rem;letter-spacing:.12em}
+    .brand small{display:block;color:var(--azul-700);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase}
+    .menu{display:flex;align-items:center;gap:6px;list-style:none}
+    .menu button,.menu a{border:0;background:transparent;padding:12px 13px;border-radius:999px;cursor:pointer;font-size:.95rem;color:var(--cinza-700);font-weight:650}
+    .menu button:hover,.menu a:hover{background:var(--azul-100);color:var(--azul-900)}
+    .hamb{display:none;border:0;background:var(--azul-900);color:white;border-radius:14px;padding:10px 13px;font-weight:800}
+    .hero{position:relative;overflow:hidden;background:linear-gradient(140deg,#ffffff 0%,#edf6ff 42%,#dceeff 100%)}
+    .hero:before{content:"";position:absolute;inset:-200px -80px auto auto;width:540px;height:540px;background:radial-gradient(circle,rgba(21,104,191,.25),transparent 64%);border-radius:50%}
+    .hero:after{content:"";position:absolute;left:-120px;bottom:-180px;width:410px;height:410px;border:70px solid rgba(0,46,103,.06);border-radius:50%}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;padding:76px 0 70px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;background:#fff;border:1px solid var(--linha);border-radius:999px;color:var(--azul-800);font-weight:800;font-size:.84rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:22px}
+    .eyebrow img{width:22px;height:22px;object-fit:contain}
+    h1{font-size:clamp(2.45rem,5vw,5.1rem);line-height:.98;letter-spacing:-.055em;color:var(--azul-900);margin-bottom:22px}
+    .lead{font-size:1.18rem;color:var(--cinza-700);max-width:680px;margin-bottom:28px}
+    .actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:14px 20px;font-weight:800;cursor:pointer;border:0;transition:.2s ease}
+    .btn-primary{background:var(--azul-900);color:white;box-shadow:0 12px 30px rgba(0,46,103,.22)}
+    .btn-primary:hover{transform:translateY(-2px);background:var(--azul-700)}
+    .btn-outline{background:white;color:var(--azul-900);border:1px solid var(--linha)}
+    .btn-outline:hover{background:var(--azul-100)}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;max-width:690px}
+    .stat{background:rgba(255,255,255,.82);border:1px solid var(--linha);padding:16px;border-radius:18px}
+    .stat strong{display:block;color:var(--azul-900);font-size:1.5rem;line-height:1}
+    .stat span{font-size:.84rem;color:var(--cinza-700)}
+    .hero-card{position:relative;border-radius:34px;background:#fff;padding:28px;border:1px solid var(--linha);box-shadow:var(--sombra);overflow:hidden}
+    .hero-card:before{content:"";position:absolute;inset:auto -80px -100px auto;width:260px;height:260px;background:var(--azul-100);border-radius:50%}
+    .hero-card .logo-main{width:min(430px,100%);margin:0 auto 18px;position:relative;z-index:1}
+    .hero-panel{position:relative;z-index:1;background:var(--azul-900);color:white;border-radius:24px;padding:22px;margin-top:8px}
+    .hero-panel h2{font-size:1.25rem;margin-bottom:8px}
+    .hero-panel p{opacity:.9;color:#e6f1ff}
+    .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-28px;position:relative;z-index:3}
+    .quick-card{background:white;border:1px solid var(--linha);box-shadow:0 14px 40px rgba(0,46,103,.11);border-radius:22px;padding:22px;display:grid;gap:10px;cursor:pointer;text-align:left}
+    .icon{width:44px;height:44px;border-radius:14px;background:var(--azul-100);display:grid;place-items:center;overflow:hidden}
+    .icon img{width:34px;height:34px;object-fit:contain}
+    .quick-card h3{color:var(--azul-900);font-size:1.1rem}
+    .quick-card p{color:var(--cinza-700);font-size:.94rem}
+    section{padding:82px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:34px}
+    .section-head h2{font-size:clamp(2rem,3.5vw,3.2rem);line-height:1;color:var(--azul-900);letter-spacing:-.04em;max-width:730px}
+    .section-head p{max-width:440px;color:var(--cinza-700)}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--linha);border-radius:var(--radius);padding:26px;background:white;min-height:250px;transition:.2s ease;position:relative;overflow:hidden}
+    .card:after{content:"";position:absolute;right:-80px;bottom:-80px;width:180px;height:180px;background:var(--azul-100);border-radius:50%;z-index:0}
+    .card>*{position:relative;z-index:1}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,46,103,.13)}
+    .card h3{color:var(--azul-900);font-size:1.25rem;margin:14px 0 10px}
+    .card p{color:var(--cinza-700);font-size:.96rem;margin-bottom:18px}
+    .link-btn{border:0;background:transparent;color:var(--azul-700);font-weight:900;cursor:pointer;font-size:.95rem}
+    .split{background:var(--cinza-100)}
+    .split-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:36px;align-items:center}
+    .image-box{background:white;border:1px solid var(--linha);border-radius:34px;padding:28px;box-shadow:0 16px 45px rgba(0,46,103,.12)}
+    .image-box img{border-radius:24px;margin:auto;max-height:420px;object-fit:contain}
+    .steps{display:grid;gap:16px}
+    .step{background:white;border:1px solid var(--linha);border-radius:20px;padding:20px;display:flex;gap:14px;align-items:flex-start}
+    .step b{background:var(--azul-900);color:white;min-width:36px;height:36px;border-radius:50%;display:grid;place-items:center}
+    .step h3{color:var(--azul-900);margin-bottom:3px}
+    .applications{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .feature{min-height:420px;background:linear-gradient(135deg,rgba(0,46,103,.92),rgba(21,104,191,.84)),url('assets/simbolo-geotecnia.png');background-size:cover;background-position:center;border-radius:32px;padding:34px;color:white;display:flex;flex-direction:column;justify-content:end}
+    .feature h2{font-size:2.3rem;line-height:1;margin-bottom:14px;letter-spacing:-.04em}
+    .feature p{color:#e8f3ff;max-width:680px}
+    .side-stack{display:grid;gap:18px}
+    .mini{border-radius:28px;padding:26px;border:1px solid var(--linha);background:white;min-height:200px}
+    .mini h3{color:var(--azul-900);margin:10px 0 8px}
+    .news{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .post{background:white;border:1px solid var(--linha);border-radius:24px;overflow:hidden}
+    .post-top{height:150px;background:linear-gradient(135deg,var(--azul-900),var(--azul-600));display:grid;place-items:center}
+    .post-top img{height:92px;width:92px;object-fit:contain;filter:drop-shadow(0 10px 20px rgba(0,0,0,.18))}
+    .post-body{padding:22px}.post-body h3{color:var(--azul-900);margin-bottom:10px}.post-body p{color:var(--cinza-700)}
+    .cta{background:linear-gradient(135deg,var(--azul-900),#0a5fad);color:white;border-radius:34px;padding:42px;display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;overflow:hidden;position:relative}
+    .cta:after{content:"";position:absolute;right:-70px;top:-80px;width:250px;height:250px;border:42px solid rgba(255,255,255,.12);border-radius:50%}
+    .cta h2{font-size:clamp(2rem,3vw,3.2rem);line-height:1;letter-spacing:-.04em;margin-bottom:12px}.cta p{color:#eaf3fb}
+    .contact-box{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:22px;padding:22px;position:relative;z-index:1}.contact-box p{margin:8px 0;color:white}.contact-box b{display:block;color:#fff}
+    footer{background:#071d3b;color:#d8e8fb;padding:44px 0 24px}
+    .foot{display:grid;grid-template-columns:1.1fr repeat(3,1fr);gap:28px;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:28px}.foot img{width:70px}.foot h3{color:white;margin-bottom:10px}.foot a,.foot p{display:block;color:#d8e8fb;margin:6px 0;font-size:.94rem}.copy{padding-top:20px;color:#abc6e4;font-size:.9rem}
+    dialog{border:0;border-radius:28px;box-shadow:0 30px 90px rgba(0,0,0,.36);width:min(820px,calc(100% - 28px));padding:0;overflow:hidden}dialog::backdrop{background:rgba(4,18,38,.68);backdrop-filter:blur(6px)}
+    .modal-head{background:linear-gradient(135deg,var(--azul-900),var(--azul-600));color:white;padding:24px;display:flex;align-items:center;justify-content:space-between;gap:16px}.modal-title{display:flex;align-items:center;gap:14px}.modal-title img{width:48px;height:48px;object-fit:contain;background:white;border-radius:15px;padding:5px}.modal-head button{background:white;color:var(--azul-900);border:0;border-radius:50%;width:38px;height:38px;font-size:1.4rem;cursor:pointer}
+    .modal-body{padding:30px;background:white}.modal-body h3{color:var(--azul-900);font-size:1.4rem;margin:16px 0 8px}.modal-body p{color:var(--cinza-700);margin:10px 0}.modal-body ul{padding-left:20px;color:var(--cinza-700);margin:12px 0}.modal-body li{margin:7px 0}.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.tag{border:1px solid var(--linha);background:var(--azul-100);color:var(--azul-900);border-radius:999px;padding:7px 10px;font-weight:800;font-size:.83rem}
+    @media(max-width:920px){.hamb{display:block}.menu{position:absolute;top:78px;left:20px;right:20px;background:white;border:1px solid var(--linha);border-radius:20px;padding:12px;display:none;flex-direction:column;align-items:stretch;box-shadow:var(--sombra)}.menu.open{display:flex}.menu button,.menu a{text-align:left}.hero-grid,.split-grid,.applications,.cta{grid-template-columns:1fr}.quick,.cards,.news{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}.foot{grid-template-columns:1fr 1fr}.topbar .container{display:block}.topbar span{display:block;margin:3px 0}}
+    @media(max-width:560px){.container{width:min(100% - 26px,1180px)}.brand strong{font-size:.9rem}.brand small{font-size:.62rem}.hero-grid{padding:48px 0}.cta{padding:28px}.foot{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="container"><span>HAMUTAY Soluções Técnicas e Engenharia</span><span>Consultoria • Laudos • Geotecnia • Infraestrutura • Segurança</span></div></div>
+  <header>
+    <nav class="container nav" aria-label="Navegação principal">
+      <a class="brand" href="#inicio"><img src="assets/logo-hamutay.png" alt="Logo HAMUTAY"><span><strong>HAMUTAY</strong><small>Soluções técnicas e engenharia</small></span></a>
+      <button class="hamb" onclick="toggleMenu()">Menu</button>
+      <ul class="menu" id="menu">
+        <li><button onclick="openInfo('quem')">Quem somos</button></li>
+        <li><button onclick="openInfo('fazemos')">O que fazemos</button></li>
+        <li><button onclick="openInfo('onde')">Onde atuamos</button></li>
+        <li><button onclick="openInfo('sustentabilidade')">Responsabilidade</button></li>
+        <li><a href="#conteudos">Conteúdos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><img src="assets/logo-hamutay.png" alt="">Engenharia com visão de campo</span>
+          <h1>Soluções técnicas para obras, infraestrutura e território.</h1>
+          <p class="lead">A HAMUTAY integra engenharia civil, geotecnia, saneamento, segurança do trabalho e apoio técnico para empresas, condomínios, profissionais e setor público.</p>
+          <div class="actions"><a class="btn btn-primary" href="#contato">Solicitar orçamento</a><button class="btn btn-outline" onclick="openInfo('fazemos')">Conhecer áreas de atuação</button></div>
+          <div class="stats"><div class="stat"><strong>01</strong><span>Atendimento técnico personalizado</span></div><div class="stat"><strong>360°</strong><span>Visão de projeto, obra e operação</span></div><div class="stat"><strong>SC</strong><span>Base em Santa Catarina</span></div></div>
+        </div>
+        <aside class="hero-card"><img class="logo-main" src="assets/logo-hamutay.png" alt="HAMUTAY Soluções Técnicas e Engenharia"><div class="hero-panel"><h2>Mapas, solo, concreto e decisão técnica.</h2><p>Um site institucional com navegação por janelas informativas, pensado para apresentar serviços com clareza e aparência corporativa.</p></div></aside>
+      </div>
+    </section>
+
+    <div class="container quick" aria-label="Acesso rápido">
+      <button class="quick-card" onclick="openInfo('quem')"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Quem somos</h3><p>Conheça o posicionamento, propósito e diferenciais técnicos da empresa.</p></button>
+      <button class="quick-card" onclick="openInfo('fazemos')"><span class="icon"><img src="assets/simbolo-geotecnia.png" alt=""></span><h3>O que fazemos</h3><p>Abra a janela com os serviços e frentes de atuação da HAMUTAY.</p></button>
+      <button class="quick-card" onclick="openInfo('onde')"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Onde atuamos</h3><p>Áreas de aplicação: obras, saneamento, geotecnia, infraestrutura e licitações.</p></button>
+    </div>
+
+    <section id="expertises">
+      <div class="container">
+        <div class="section-head"><h2>Expertises organizadas para facilitar a contratação.</h2><p>Modelo inspirado em grandes páginas institucionais: blocos claros, chamadas objetivas e janelas de conteúdo para apresentar informações sem poluir a tela.</p></div>
+        <div class="cards">
+          <article class="card"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Consultoria e apoio técnico</h3><p>Análise de problemas, orientação técnica, apoio à tomada de decisão e suporte para contratos, obras e manutenção.</p><button class="link-btn" onclick="openInfo('consultoria')">Abrir janela →</button></article>
+          <article class="card"><span class="icon"><img src="assets/simbolo-geotecnia.png" alt=""></span><h3>Geotecnia e território</h3><p>Leitura técnica de solos, taludes, drenagem, percolação, contenções, fundações e obras de terra.</p><button class="link-btn" onclick="openInfo('geotecnia')">Abrir janela →</button></article>
+          <article class="card"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Laudos e vistorias</h3><p>Documentos técnicos com registro fotográfico, avaliação de manifestações patológicas e responsabilidade profissional.</p><button class="link-btn" onclick="openInfo('laudos')">Abrir janela →</button></article>
+          <article class="card"><span class="icon"><img src="assets/simbolo-geotecnia.png" alt=""></span><h3>Saneamento e infraestrutura</h3><p>Apoio técnico em estações, reservatórios, redes, drenagem, estruturas hidráulicas e obras urbanas.</p><button class="link-btn" onclick="openInfo('saneamento')">Abrir janela →</button></article>
+          <article class="card"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Segurança do trabalho</h3><p>Orientações, avaliações e documentos ligados à segurança em atividades de engenharia e construção civil.</p><button class="link-btn" onclick="openInfo('seguranca')">Abrir janela →</button></article>
+          <article class="card"><span class="icon"><img src="assets/simbolo-geotecnia.png" alt=""></span><h3>Licitações e fornecimento</h3><p>Apoio técnico e comercial para materiais, equipamentos, soluções de infraestrutura e atendimento ao setor público.</p><button class="link-btn" onclick="openInfo('licitacoes')">Abrir janela →</button></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="split" id="metodo">
+      <div class="container split-grid">
+        <div class="image-box"><img src="assets/simbolo-geotecnia.png" alt="Símbolo técnico com mapas, concreto e camadas de solo"></div>
+        <div>
+          <div class="section-head" style="margin-bottom:22px"><h2>Método HAMUTAY</h2></div>
+          <div class="steps">
+            <div class="step"><b>1</b><div><h3>Diagnóstico técnico</h3><p>Entendimento do problema, coleta de informações, leitura de campo e definição do escopo.</p></div></div>
+            <div class="step"><b>2</b><div><h3>Análise e fundamentação</h3><p>Integração entre normas, experiência prática, registros, fotos, desenhos, mapas e dados disponíveis.</p></div></div>
+            <div class="step"><b>3</b><div><h3>Solução aplicável</h3><p>Entrega de parecer, laudo, orientação, proposta ou plano de ação com linguagem técnica e objetiva.</p></div></div>
+            <div class="step"><b>4</b><div><h3>Apoio à execução</h3><p>Acompanhamento, fiscalização, revisão de documentos e suporte até a consolidação da solução.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atuacao">
+      <div class="container applications">
+        <div class="feature"><h2>Atuação técnica em ambientes reais de obra.</h2><p>Da análise do solo ao concreto, da drenagem ao saneamento, da fiscalização ao documento técnico: a HAMUTAY foi pensada para transformar conhecimento de engenharia em decisão segura.</p></div>
+        <div class="side-stack">
+          <div class="mini"><span class="icon"><img src="assets/logo-hamutay.png" alt=""></span><h3>Setor público</h3><p>Apoio a licitações, fornecimento, obras públicas, fiscalização e documentação técnica.</p></div>
+          <div class="mini"><span class="icon"><img src="assets/simbolo-geotecnia.png" alt=""></span><h3>Empresas e condomínios</h3><p>Vistorias, laudos, manutenção, consultoria e soluções para problemas construtivos.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="split" id="conteudos">
+      <div class="container">
+        <div class="section-head"><h2>Conteúdos técnicos e notícias da HAMUTAY.</h2><p>Área preparada para futuramente receber artigos, notas técnicas, novidades da empresa e publicações profissionais.</p></div>
+        <div class="news">
+          <article class="post"><div class="post-top"><img src="assets/logo-hamutay.png" alt=""></div><div class="post-body"><h3>Como contratar um laudo técn
